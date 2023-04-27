@@ -1,0 +1,92 @@
+***** BLUEPRINT *****   save as Bank.JAVA
+
+class Bank
+{
+	String accno;
+	String name;
+	String add;
+	double balance;
+
+	String nominee;
+	double income;
+	String type;
+	String interest;
+
+
+
+	Bank()
+	{
+	}
+
+	Bank(String accno,String name,String add,double balance)    //this are local variable to constructor
+	{
+		this.accno = accno;
+		this.name = name;										//local cariable value is getting assigned to non static variable using this 
+		this.add = name;
+		this.balance = balance;
+	}
+
+	Bank(String accno,String name,String add,double balance,String nominee)
+	{
+		this(accno,name,add,balance);						//constructor chaining-calling one constructor inside another,this call statement will search for a constructor that can assign formal statements
+		this.nominee = nominee;
+	}
+
+	Bank(String accno,String name,String add,double balance,String nominee,double income)
+	{
+		this(accno,name,add,balance,nominee);
+		this.income = income;
+	}
+
+	Bank(String accno,String name,String add,double balance,String nominee,double income,String type)
+	{
+		this(accno,name,add,balance,nominee,income);
+		this.type = type;
+	}
+
+	Bank(String accno,String name,String add,double balance,String nominee,double income,String type,String interest)
+	{
+		this(accno,name,add,balance,nominee,income,type);
+		this.interest = interest;
+	}
+
+	public void displayBank()
+	{
+		System.out.println("                             ");
+		System.out.println("-----------------------------");
+		System.out.println("                             ");
+		System.out.println("Account number : "+ accno);
+		System.out.println("Name :"+ name);
+		System.out.println("Address : "+ add);
+		System.out.println("Balance : "+ balance);
+		System.out.println("Nominee : "+ nominee);
+		System.out.println("Annual Income : "+ income);
+		System.out.println("Account Type : "+ type);
+		System.out.println("Annual Interest : "+ interest);
+		System.out.println("                             ");
+		System.out.println("-----------------------------");
+		System.out.println("                             ");
+
+	}
+
+}
+
+
+*****OBJECT FILE***** save as BankDriver.JAVA
+
+class BankDriver 
+{
+	public static void main(String[] args) 
+	{
+		Bank b1 = new Bank("987564255552","Ankeet","Bandra",759500000,"Mother",8650000046.00,"SA");
+
+		b1.displayBank();
+		
+		Bank b2 = new Bank("987564255552","Aman","Pune",759500000);
+
+		b2.displayBank();
+
+
+	}
+}
+
