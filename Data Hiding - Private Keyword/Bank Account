@@ -1,0 +1,119 @@
+*** BLUEPRINT ***
+
+class BankAcc
+{
+	private String bank;
+	private String name;
+	private long accno;
+	private String ifsc;
+	private String branch;
+	private double balance;
+	private String type;
+	private int pin;
+
+	BankAcc()
+	{
+	}
+
+	BankAcc(String bank,String name,long accno,String ifsc,String branch,double balance,String type,int pin)
+	{
+		this.bank = bank;
+		this.name = name;
+		this.accno = accno;
+		this.ifsc = ifsc;
+		this.branch = branch;
+		this.balance = balance;
+		this.type = type;
+		this.pin = pin;
+
+		System.out.println("Account Created!!!");
+	}
+
+	public void getBank()
+	{
+		System.out.println(bank);
+	}
+
+	public void getName()
+	{
+		System.out.println(name);
+	}
+
+	public void getAccno()
+	{
+		System.out.println(accno);
+		System.out.println(ifsc);
+		System.out.println(branch);
+		System.out.println(type);
+
+	}
+
+	public void getBalance(long accno,int pin)
+	{
+		if (accno == this.accno && pin == this.pin)
+		{
+			System.out.println(balance);
+		}
+		else
+		{
+			System.out.println("Invalid Credentials");
+		}
+	}
+
+	public void setDepBalance(long accno, int pin, double amt)
+	{
+		if (accno == this.accno && pin == this.pin && amt>0)
+		{
+			balance = balance + amt;
+			System.out.println("Deposit Successfull!!!");
+		}
+		else
+		{
+			System.out.println("Invalid Credentials!!!");
+		}
+	}
+
+	public void setWithBalance(int accno,int pin,double amt)
+	{
+		if (accno == this.accno && pin == this.pin)
+		{
+			if (amt>0 && amt<=200000 && (balance-amt>=2000))
+			{
+				balance = balance - amt;
+			}
+			else
+			{
+				System.out.println("Enter Valid Amount");
+			}
+
+		}
+		else
+		{
+			System.out.println("Invalid Credentials");
+		}
+	}
+}
+
+
+
+
+*** OBJECT FILE ***
+
+class BankAccDriver 
+{
+	public static void main(String[] args) 
+	{
+		BankAcc b1 = new BankAcc("Swiss Bank","John Wick",123456789l,"SWSS123","Basel",500000.00,"Saving Account",1234);
+
+		b1.getBank();
+		b1.getName();
+		b1.getAccno();
+		b1.getBalance(123456789,1234);
+		b1.setDepBalance(123456789,1234,500);
+		b1.getBalance(123456789,1234);
+		b1.setWithBalance(123456789,1234,500);
+		b1.getBalance(123456789,1234);
+
+
+	}
+}
