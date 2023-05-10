@@ -1,0 +1,8 @@
+1.Has a relationship dependency
+
+  a) composition : Hardware-software,car-engine
+  b) aggregation : mobile-sim,whatsapp-status
+  
+  
+2.Is a relationship : parent child
+
