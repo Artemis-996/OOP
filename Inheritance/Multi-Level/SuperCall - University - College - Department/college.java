@@ -1,6 +1,5 @@
 package singlelevel;
-
-import java.security.Principal;
+
 
 public class college extends university{
 	
